@@ -1,0 +1,9 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "ChatOnline front end",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "author": "wsszh01111"
+}
