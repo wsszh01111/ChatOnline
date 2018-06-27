@@ -1,3 +1,7 @@
-import './a';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var s = 1;
+ReactDOM.render(
+    <div>adsf</div>, 
+    document.getElementById('root')
+);
