@@ -1,0 +1,32 @@
+.wrapper{
+    width: 900px;
+    height: 600px;
+    margin: 30px auto;
+}
+
+.message{
+    height: 90%;
+}
+
+ul{
+    list-style: none inside;
+}
+
+ul>li{
+    background: #E8E8E8;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.input-wrapper{
+    height: 10%;
+    display: flex;
+}
+
+.input{
+    width: 90%;
+}
+
+.input-button{
+    width: 10%;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Home from './pages/Home/Home';
 
 ReactDOM.render(
-    <div>adsf</div>, 
+    <Home />, 
     document.getElementById('root')
 );

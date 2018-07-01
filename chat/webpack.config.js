@@ -6,6 +6,9 @@ module.exports = {
         path:path.resolve(__dirname, '../server/public'),
         filename:'[name].bundle.js'
     },
+    externals:{
+        'socket.io':'io'
+    },
     module: {
         rules: [{
             test:/\.js$/,
