@@ -3,8 +3,14 @@ const path = require('path');
 module.exports = {
     entry:path.resolve(__dirname, 'src/index.js'),
     output:{
-        path:path.resolve(__dirname, '../server/public'),
+        path:path.resolve(__dirname, 'public'),
         filename:'[name].bundle.js'
+    },
+    devServer:{
+        host:'localhost',
+        port:80,
+        historyApiFallback:true,
+        contentBase:path.resolve(__dirname, 'public')
     },
     externals:{
         'socket.io':'io'
