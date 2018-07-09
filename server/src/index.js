@@ -4,10 +4,42 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const router = require('./router');
 const reload = require('../reload/reload');
+// const expressJWT = require('express-jwt');
+const jwt = require('jsonwebtoken');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 // static files
 app.use(express.static('public'));
 app.use(express.static('reload'));
+
+// app.use(expressJWT({secret:'asdf'}).unless({path:['/loginRequest']}));
+
+// resole request
+app.use(bodyParser.json());
+
+// resolve cookie
+app.use(cookieParser());
+
+app.use((req, res, next)=>{
+    if (['/loginRequest'].includes(req.path)) { //登录不拦截
+        console.log('是loginRequest');
+        next();
+    }else{
+        const token = req.cookies.c;
+        console.log('不是loginRequest--', req.cookies, token);
+        jwt.verify(token, 'ddddd', (err, decodedToken)=>{
+            console.log('验证----', err, decodedToken)
+            if (err) {
+                console.log('验证不通过');
+                return res.sendStatus(401);
+            }else{
+                console.log('验证通过');
+                next();
+            }
+        });
+    }
+})
 
 // config routes
 router(app);
